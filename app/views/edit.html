@@ -1,5 +1,5 @@
 <form name="myForm">
-<input ui-date>
+
   <div class="control-group" ng-class="{error: myForm.name.$invalid}">
     <label>Thing</label>
     <input type="text" name="name" ng-model="project.name" required>
@@ -22,7 +22,7 @@
   </div>
   <div class="control-group" ng-class="{error: myForm.startdate.$invalid}">
     <label>Start Date</label>
-    <input type="text" name="startdate" ng-model="project.startdate">
+    <input type="text" name="startdate" ng-model="project.startdate" ui-date-format="DD, d MM, yy" ui-date="dateOptions">
   </div>
  
  
