@@ -8,8 +8,7 @@ angular.module('activityTrackerApp', [
   'firebase'
 ])
   
-	.factory('Projects', function($firebase, fbURL) {
-		var ref = new Firebase("https://kingpinapp.firebaseio.com");
+	.factory('Projects', function($firebase, Firebase, fbURL) {
 	  return $firebase(new Firebase(fbURL));
 	})
 	// Firebase database
@@ -25,6 +24,10 @@ angular.module('activityTrackerApp', [
         templateUrl: 'views/activities.html',
         controller: 'ActivitiesCtrl'
       })
+      .when('/edit/:projectId', {
+        templateUrl: 'views/edit.html',
+        controller: 'EditCtrl'
+	    })
       .otherwise({
         redirectTo: '/'
       });

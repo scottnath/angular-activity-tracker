@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "dependencies": {
     "angular": "1.2.8",
+    "requirejs": "~2.1.4",
     "json3": "~3.2.6",
     "es5-shim": "~2.1.0",
     "angular-resource": "1.2.8",
@@ -11,7 +12,8 @@
     "angular-route": "1.2.9",
     "angularfire": "",
     "firebase": "",
-    "lodash":""
+    "lodash":"",
+    "angular-ui-date": "latest"
   },
   "devDependencies": {
     "angular-mocks": "1.2.6",
