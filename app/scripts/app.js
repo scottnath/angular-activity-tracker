@@ -1,42 +1,24 @@
-'use strict';
+requirejs.config({
+    baseUrl: '/scripts',
+    paths: {
+        bower: '/bower_components',
+        jquery: '/bower_components/jquery/jquery.min',
+        jqueryUi: '/bower_components/jquery-ui/ui/jquery-ui',
+        angular: '/bower_components/angular/angular.min',
+        angularResource: '/bower_components/angular-resource/angular-resource',
+        angularCookies: '/bower_components/angular-cookies/angular-cookies',
+        angularRoute: '/bower_components/angular-route/angular-route',
+        angularMocks: '/bower_components/angular-mocks/angular-mocks',
+        firebase: '/bower_components/firebase/firebase',
+        firebaseSimpleLogin: '/bower_components/firebase-simple-login/firebase-simple-login',
+        angularFire: '/bower_components/angularfire/angularfire',
+        lodash: '/bower_components/lodash/dist/lodash.compat.min',
+        listActivities: 'controllers/activities',
+        editActivity: 'controllers/edit'
+        
+    }
+});
 
-angular.module('activityTrackerApp', [
-  'ngCookies',
-  'ngResource',
-  'ngSanitize',
-  'ngRoute',
-  'firebase'
-])
-  
-	.factory('Projects', function($firebase, Firebase, fbURL) {
-	  return $firebase(new Firebase(fbURL));
-	})
-	// Firebase database
-	.value('fbURL', 'https://scottnath.firebaseio.com/')
-	
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
-      })
-      .when('/activities', {
-        templateUrl: 'views/activities.html',
-        controller: 'ActivitiesCtrl'
-      })
-      .when('/edit/:projectId', {
-        templateUrl: 'views/edit.html',
-        controller: 'EditCtrl'
-	    })
-      .otherwise({
-        redirectTo: '/'
-      });
-  })
-	
-	.factory('repeatOptions', function() {
-	  return [
-	      { id: 'yesno', name: 'Yes/No' },
-	      { id: 'number', name: 'Number times' },
-	      { id: 'duration', name: 'Duration' }
-	    ];
-	});
+define([ 'jquery', 'angular', 'activityTrackerApp' ], function() {
+    angular.bootstrap(document.getElementById('activityTrackerApp'), [ 'activityTrackerApp' ]);
+});

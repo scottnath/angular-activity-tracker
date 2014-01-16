@@ -1,7 +1,11 @@
 'use strict';
 
-angular.module('activityTrackerApp')
-  .controller('EditCtrl', function($scope, $location, $routeParams, $firebase, Firebase, fbURL, repeatOptions) {
+
+define([ 'angular' ], function() {
+
+  var editActivity = angular.module('ata.editActivity', ['firebase']);
+
+  editActivity.controller('EditCtrl', function($scope, $location, $routeParams, $firebase, Firebase, fbURL, repeatOptions) {
     var projectUrl = fbURL + $routeParams.projectId;
     $scope.project = $firebase(new Firebase(projectUrl));
 	  $scope.repeatTypes = repeatOptions;
@@ -14,11 +18,11 @@ angular.module('activityTrackerApp')
       $scope.project.$save();
       $location.path('/activities');
     };
-	})
-  .filter('repeatName', function(repeatOptions) {
+	});
+  editActivity.filter('repeatName', function(repeatOptions) {
 	  return function(input) {
 	    return _.filter(repeatOptions, {id: input})[0].name;
 	  };
 	});
 
-
+});
