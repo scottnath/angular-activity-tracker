@@ -1,5 +1,5 @@
 'use strict';
-define([ 'jquery', 'angular', 'jqueryUi', 'angularResource', 'angularRoute', 'angularCookies', 'angularMocks', 'firebase', 'firebaseSimpleLogin', 'angularFire', 'lodash', 'listActivities', 'editActivity' ], function() {
+define([ 'jquery', 'angular', 'jqueryUi', 'angularResource', 'angularRoute', 'angularCookies', 'angularMocks', 'firebase', 'firebaseSimpleLogin', 'angularFire', 'lodash', 'angularUiDate', 'listActivities', 'editActivity' ], function() {
 
 	var ata = angular.module('activityTrackerApp', ['ngRoute','firebase','ata.listActivities','ata.editActivity']);
 

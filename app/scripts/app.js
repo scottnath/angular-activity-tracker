@@ -13,6 +13,7 @@ requirejs.config({
         firebaseSimpleLogin: '/bower_components/firebase-simple-login/firebase-simple-login',
         angularFire: '/bower_components/angularfire/angularfire',
         lodash: '/bower_components/lodash/dist/lodash.compat.min',
+        angularUiDate: '/bower_components/angular-ui-date/src/date',
         listActivities: 'controllers/activities',
         editActivity: 'controllers/edit'
         
