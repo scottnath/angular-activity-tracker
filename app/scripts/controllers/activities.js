@@ -13,15 +13,10 @@ define([ 'angular' ], function() {
   });
 */
   
-  listActivities.controller('ActivitiesCtrl', function($scope, Projects, repeatOptions, $ataTranslate) {
+  listActivities.controller('ActivitiesCtrl', function($scope, Projects, repeatOptions, $ataTranslate, siteConfig) {
 	  $scope.projects = Projects;
 	  $scope.items = repeatOptions;
 	});
   
-  listActivities.filter('repeatName', function(repeatOptions) {
-	  return function(input) {
-	    return _.filter(repeatOptions, {id: input})[0].name;
-	  };
-	});
 	
 });

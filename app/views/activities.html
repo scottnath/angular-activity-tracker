@@ -12,7 +12,7 @@
   <tbody>
   <tr ng-repeat="project in projects | orderByPriority | filter:search | orderBy:'name'">
     <td><a href="{{project.site}}" target="_blank">{{project.name}}</a></td>
-    <td>{{project.repeat | repeatName}}</td>
+    <td>{{project.repeat | recordTypeName}}</td>
     <td>{{project.goodbad}}</td>
     <td>{{project.startdate}}</td>
     <td>

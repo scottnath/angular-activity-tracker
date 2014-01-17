@@ -4,10 +4,10 @@ define([ 'angular' ], function() {
 
   var editActivity = angular.module('ata.editActivity', ['firebase','ui.date']);
 
-  editActivity.controller('EditCtrl', function($scope, $location, $routeParams, $ataTranslate, $firebase, Firebase, fbURL, repeatOptions) {
+  editActivity.controller('EditCtrl', function($scope, $location, $routeParams, $ataTranslate, $firebase, siteConfig, Firebase, fbURL, repeatOptions) {
     var projectUrl = fbURL + $routeParams.projectId;
     $scope.project = $firebase(new Firebase(projectUrl));
-	  $scope.repeatTypes = repeatOptions;
+	  $scope.repeatTypes = siteConfig.getRecordOptions();
 	  $scope.dateOptions = {
         changeYear: true,
         changeMonth: true,
@@ -22,11 +22,6 @@ define([ 'angular' ], function() {
       $scope.project.$save();
       $location.path('/activities');
     };
-	});
-  editActivity.filter('repeatName', function(repeatOptions) {
-	  return function(input) {
-	    return _.filter(repeatOptions, {id: input})[0].name;
-	  };
 	});
 
 });

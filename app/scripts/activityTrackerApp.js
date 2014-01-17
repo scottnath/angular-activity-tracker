@@ -19,6 +19,7 @@ define([
 	'editActivity'
 	],
 	function() {
+	
 		var ata = angular.module('activityTrackerApp', [
 			'ngRoute',
 			'firebase',
@@ -26,7 +27,57 @@ define([
 			'ata.editActivity',
 			'ata.translate'
 		]);
-
+		
+		
+    //////////////////////////////
+    // Route Configuration for Angular Activity Tracker
+    //
+    // - $routeProvider: Allows for configuration of routes
+    // - $locationProvider: Allows for configuration of routing strategy
+    //////////////////////////////
+	  ata.config(function ($routeProvider) {
+	    $routeProvider
+	      .when('/', {
+	        templateUrl: 'views/main.html',
+	        controller: 'MainCtrl'
+	      })
+	      .when('/activities', {
+	        templateUrl: 'views/activities.html',
+	        controller: 'ActivitiesCtrl'
+	      })
+	      .when('/edit/:projectId', {
+	        templateUrl: 'views/edit.html',
+	        controller: 'EditCtrl'
+		    })
+	      .otherwise({
+	        redirectTo: '/'
+	      });
+	  });
+    //////////////////////////////
+    // Factory for site configuration
+    //////////////////////////////
+    ata.factory('siteConfig', function ($http, $ataTranslate) {
+    
+			var recordOptions = [
+			  { id: 'yesno', name: 'Yes/No' },
+			  { id: 'number', name: 'Number times' },
+			  { id: 'minutes', name: 'Minutes' }
+			];
+			
+			return {
+        getRecordOptions: function() {
+          return recordOptions;
+        }
+       
+       };
+			
+		});
+	  
+	  ata.filter('recordTypeName', function(siteConfig) {
+		  return function(input) {
+		    return _.filter(siteConfig.getRecordOptions(), {id: input})[0].name;
+		  };
+		});
   
 	ata.factory('Projects', function($firebase, Firebase, fbURL) {
 	  return $firebase(new Firebase(fbURL));
@@ -34,24 +85,6 @@ define([
 	// Firebase database
 	ata.value('fbURL', 'https://scottnath.firebaseio.com/');
 	
-  ata.config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
-      })
-      .when('/activities', {
-        templateUrl: 'views/activities.html',
-        controller: 'ActivitiesCtrl'
-      })
-      .when('/edit/:projectId', {
-        templateUrl: 'views/edit.html',
-        controller: 'EditCtrl'
-	    })
-      .otherwise({
-        redirectTo: '/'
-      });
-  });
 	
 	ata.factory('repeatOptions', function() {
 	  return [
