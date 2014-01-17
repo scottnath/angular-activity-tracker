@@ -4,14 +4,13 @@
 define([ 'angular' ], function() {
 
   var listActivities = angular.module('ata.listActivities', ['firebase']);
-/*
-  timestamp.directive('ticketTimestamp', function() {
+
+  listActivities.directive('activitiesTable', function() {
       return {
           restrict: 'E',
-          templateUrl: '/angular/ticket-timestamp.html'
+          templateUrl: '/views/partials/activities-table.html'
       };
   });
-*/
   
   listActivities.controller('ActivitiesCtrl', function($scope, Projects, repeatOptions, $ataTranslate, siteConfig) {
 	  $scope.projects = Projects;

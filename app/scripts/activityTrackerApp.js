@@ -1,6 +1,6 @@
 'use strict';
 
-define([ 
+define([
 	'jquery',
 	'angular',
 	'jqueryUi',
@@ -17,7 +17,7 @@ define([
 	'angularUiDate',
 	'listActivities',
 	'editActivity'
-	],
+],
 	function() {
 	
 		var ata = angular.module('activityTrackerApp', [
@@ -69,7 +69,7 @@ define([
           return recordOptions;
         }
        
-       };
+      };
 			
 		});
 	  
@@ -79,19 +79,20 @@ define([
 		  };
 		});
   
-	ata.factory('Projects', function($firebase, Firebase, fbURL) {
-	  return $firebase(new Firebase(fbURL));
-	});
-	// Firebase database
-	ata.value('fbURL', 'https://scottnath.firebaseio.com/');
+		ata.factory('Projects', function($firebase, Firebase, fbURL) {
+		  return $firebase(new Firebase(fbURL));
+		});
+	  
+	  // Firebase database
+	  ata.value('fbURL', 'https://scottnath.firebaseio.com/');
 	
 	
-	ata.factory('repeatOptions', function() {
-	  return [
-	      { id: 'yesno', name: 'Yes/No' },
-	      { id: 'number', name: 'Number times' },
-	      { id: 'minutes', name: 'Minutes' }
-	    ];
-	});
+		ata.factory('repeatOptions', function() {
+		  return [
+		      { id: 'yesno', name: 'Yes/No' },
+		      { id: 'number', name: 'Number times' },
+		      { id: 'minutes', name: 'Minutes' }
+		    ];
+		});
 
-});
+	});
