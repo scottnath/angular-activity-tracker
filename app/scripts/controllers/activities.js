@@ -13,8 +13,7 @@ define([ 'angular' ], function() {
   });
 */
   
-  listActivities.controller('ActivitiesCtrl', function($scope, Projects, repeatOptions) {
-    $scope.test = 'tester232';
+  listActivities.controller('ActivitiesCtrl', function($scope, Projects, repeatOptions, $ataTranslate) {
 	  $scope.projects = Projects;
 	  $scope.items = repeatOptions;
 	});

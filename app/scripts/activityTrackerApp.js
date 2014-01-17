@@ -1,7 +1,31 @@
 'use strict';
-define([ 'jquery', 'angular', 'jqueryUi', 'angularResource', 'angularRoute', 'angularCookies', 'angularMocks', 'firebase', 'firebaseSimpleLogin', 'angularFire', 'lodash', 'angularUiDate', 'listActivities', 'editActivity' ], function() {
 
-	var ata = angular.module('activityTrackerApp', ['ngRoute','firebase','ata.listActivities','ata.editActivity']);
+define([ 
+	'jquery',
+	'angular',
+	'jqueryUi',
+	'angularResource',
+	'angularRoute',
+	'angularCookies',
+	'angularMocks',
+	'angularTranslate',
+	'ataTranslate',
+	'firebase',
+	'firebaseSimpleLogin',
+	'angularFire',
+	'lodash',
+	'angularUiDate',
+	'listActivities',
+	'editActivity'
+	],
+	function() {
+		var ata = angular.module('activityTrackerApp', [
+			'ngRoute',
+			'firebase',
+			'ata.listActivities',
+			'ata.editActivity',
+			'ata.translate'
+		]);
 
   
 	ata.factory('Projects', function($firebase, Firebase, fbURL) {
@@ -33,7 +57,7 @@ define([ 'jquery', 'angular', 'jqueryUi', 'angularResource', 'angularRoute', 'an
 	  return [
 	      { id: 'yesno', name: 'Yes/No' },
 	      { id: 'number', name: 'Number times' },
-	      { id: 'duration', name: 'Duration' }
+	      { id: 'minutes', name: 'Minutes' }
 	    ];
 	});
 

@@ -1,11 +1,10 @@
 'use strict';
 
-
 define([ 'angular' ], function() {
 
   var editActivity = angular.module('ata.editActivity', ['firebase','ui.date']);
 
-  editActivity.controller('EditCtrl', function($scope, $location, $routeParams, $firebase, Firebase, fbURL, repeatOptions) {
+  editActivity.controller('EditCtrl', function($scope, $location, $routeParams, $ataTranslate, $firebase, Firebase, fbURL, repeatOptions) {
     var projectUrl = fbURL + $routeParams.projectId;
     $scope.project = $firebase(new Firebase(projectUrl));
 	  $scope.repeatTypes = repeatOptions;
