@@ -15,7 +15,7 @@ define([ 'angular' ], function() {
     };
     $scope.destroy = function() {
       $scope.project.$remove();
-      $location.path('/');
+      $location.path('/activities');
     };
 
     $scope.save = function() {

@@ -17,6 +17,7 @@ requirejs.config({
         lodash: '/bower_components/lodash/dist/lodash.compat.min',
         angularUiDate: '/bower_components/angular-ui-date/src/date',
         listActivities: 'controllers/activities',
+        addActivity: 'controllers/add',
         editActivity: 'controllers/edit'
         
     }

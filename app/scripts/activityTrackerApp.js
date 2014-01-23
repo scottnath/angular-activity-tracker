@@ -16,6 +16,7 @@ define([
 	'lodash',
 	'angularUiDate',
 	'listActivities',
+	'addActivity',
 	'editActivity'
 ],
 	function() {
@@ -25,6 +26,7 @@ define([
 			'firebase',
 			'ata.listActivities',
 			'ata.editActivity',
+			'ata.addActivity',
 			'ata.translate'
 		]);
 		
@@ -48,6 +50,10 @@ define([
 	      .when('/edit/:projectId', {
 	        templateUrl: 'views/edit.html',
 	        controller: 'EditCtrl'
+		    })
+	      .when('/new', {
+	        templateUrl: 'views/edit.html',
+	        controller: 'AddCtrl'
 		    })
 	      .otherwise({
 	        redirectTo: '/'
